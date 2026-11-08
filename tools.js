@@ -21,23 +21,25 @@
   }
 
   function karte(t) {
-    var titel = el("h3", {}, [
-      el("a", { "class": "karte-link", href: t.url }, [t.name]),
-      t.status ? " " : null,
-      t.status ? el("span", { "class": "status" }, [t.status]) : null
+    var kopf = el("div", { "class": "feld kopfzeile" }, [
+      el("h3", {}, [
+        el("a", { "class": "karte-link", href: t.url }, [t.name]),
+        t.status ? " " : null,
+        t.status ? el("span", { "class": "status" }, [t.status]) : null
+      ]),
+      el("span", { "class": "adresse", "aria-hidden": "true" }, [host(t.url)])
     ]);
     var angaben = [["Bildet ab", t.abbildung], ["Für", t.zielgruppe]].filter(function (a) { return a[1]; });
     var dl = angaben.length ? el("dl", {}, angaben.map(function (a) {
-      return el("div", {}, [el("dt", {}, [a[0]]), el("dd", {}, [a[1]])]);
+      return el("div", { "class": "feld" }, [el("dt", {}, [a[0]]), el("dd", {}, [a[1]])]);
     })) : null;
-    var fuss = el("p", { "class": "karte-fuss" }, [
-      el("span", { "class": "adresse", "aria-hidden": "true" }, [host(t.url) + " →"]),
-      t.repo ? el("a", { "class": "repo", href: t.repo }, [
+    var fuss = t.repo ? el("p", { "class": "feld karte-fuss" }, [
+      el("a", { "class": "repo", href: t.repo }, [
         "Quellcode", el("span", { "class": "sr-only" }, [" von " + t.name])
-      ]) : null
-    ]);
+      ])
+    ]) : null;
     return el("li", { "class": "karte" }, [
-      el("article", {}, [titel, el("p", { "class": "beschreibung" }, [t.beschreibung]), dl, fuss])
+      el("article", {}, [kopf, el("p", { "class": "feld beschreibung" }, [t.beschreibung]), dl, fuss])
     ]);
   }
 
@@ -48,7 +50,8 @@
       if (!tools.length) return;
       var rid = "rubrik-" + r.id;
       var h2 = el("h2", { id: rid }, [r.titel]);
-      var kopf = r.untertitel ? el("hgroup", {}, [h2, el("p", {}, [r.untertitel])]) : h2;
+      var kopf = r.untertitel ? el("hgroup", { "class": "band" }, [h2, el("p", {}, [r.untertitel])])
+                              : (h2.setAttribute("class", "band"), h2);
       frag.appendChild(el("section", { "class": "rubrik", "aria-labelledby": rid }, [
         kopf, el("ul", { "class": "karten" }, tools.map(karte))
       ]));

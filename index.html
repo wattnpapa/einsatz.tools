@@ -28,8 +28,8 @@
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
-<header class="kopf">
-  <div class="wrap">
+<header class="wrap">
+  <div class="kopf">
     <h1>einsatz.tools</h1>
     <p class="untertitel">Werkzeuge für BOS und Hilfsorganisationen: laufen im Browser, brauchen kein Konto, kosten nichts, jedes erledigt eine Aufgabe.</p>
   </div>
@@ -39,85 +39,95 @@
   <h2 class="sr-only">Werkzeuge</h2>
   <div id="tools">
 <!-- TOOLS:START – wird von scripts/render_tools.py aus tools.json erzeugt, nicht von Hand bearbeiten -->
-<section class="rubrik" aria-labelledby="rubrik-fuehrung">
-<hgroup><h2 id="rubrik-fuehrung">Führung</h2><p>Digitale Führungsmittel</p></hgroup>
+<section class="abschnitt rubrik" aria-labelledby="rubrik-fuehrung">
+<hgroup class="band"><h2 id="rubrik-fuehrung">Führung</h2><p>Digitale Führungsmittel</p></hgroup>
 <ul class="karten">
 <li class="karte">
 <article>
+<div class="feld kopfzeile">
 <h3><a class="karte-link" href="https://einsatzauftrag.app">Einsatzauftrag</a></h3>
-<p class="beschreibung">Füllt den Einsatzauftrag am Bildschirm aus oder erzeugt viele Aufträge auf einmal aus einer Excel- oder CSV-Tabelle und gibt sie als PDF aus.</p>
+<span class="adresse" aria-hidden="true">einsatzauftrag.app</span>
+</div>
+<p class="feld beschreibung">Füllt den Einsatzauftrag am Bildschirm aus oder erzeugt viele Aufträge auf einmal aus einer Excel- oder CSV-Tabelle und gibt sie als PDF aus.</p>
 <dl>
-<div><dt>Bildet ab</dt><dd>Vordruck Fb Fü 3 (Einsatzauftrag)</dd></div>
-<div><dt>Für</dt><dd>Führung im THW; Kennung und Organisation im Kopf sind änderbar</dd></div>
+<div class="feld"><dt>Bildet ab</dt><dd>Vordruck Fb Fü 3 (Einsatzauftrag)</dd></div>
+<div class="feld"><dt>Für</dt><dd>Führung im THW; Kennung und Organisation im Kopf sind änderbar</dd></div>
 </dl>
-<p class="karte-fuss">
-<span class="adresse" aria-hidden="true">einsatzauftrag.app →</span>
+<p class="feld karte-fuss">
 <a class="repo" href="https://github.com/wattnpapa/einsatzauftrag">Quellcode<span class="sr-only"> von Einsatzauftrag</span></a>
 </p>
 </article>
 </li>
 <li class="karte">
 <article>
+<div class="feld kopfzeile">
 <h3><a class="karte-link" href="https://nachrichtenvordruck.app">Nachrichtenvordruck</a></h3>
-<p class="beschreibung">Füllt Nachrichtenvordruck und Meldevordruck am Bildschirm aus oder erzeugt viele aus einer Excel- oder CSV-Tabelle und gibt sie als PDF aus, auf Wunsch nur als Text zum Bedrucken vorgedruckter Bögen.</p>
+<span class="adresse" aria-hidden="true">nachrichtenvordruck.app</span>
+</div>
+<p class="feld beschreibung">Füllt Nachrichtenvordruck und Meldevordruck am Bildschirm aus oder erzeugt viele aus einer Excel- oder CSV-Tabelle und gibt sie als PDF aus, auf Wunsch nur als Text zum Bedrucken vorgedruckter Bögen.</p>
 <dl>
-<div><dt>Bildet ab</dt><dd>BOS-Nachrichtenvordruck (4fach-Satz) und Meldevordruck</dd></div>
-<div><dt>Für</dt><dd>BOS, u. a. Führungsstellen (Verteiler für TEL, EL, EAL, UEAL und Sachgebiete)</dd></div>
+<div class="feld"><dt>Bildet ab</dt><dd>BOS-Nachrichtenvordruck (4fach-Satz) und Meldevordruck</dd></div>
+<div class="feld"><dt>Für</dt><dd>BOS, u. a. Führungsstellen (Verteiler für TEL, EL, EAL, UEAL und Sachgebiete)</dd></div>
 </dl>
-<p class="karte-fuss">
-<span class="adresse" aria-hidden="true">nachrichtenvordruck.app →</span>
+<p class="feld karte-fuss">
 <a class="repo" href="https://github.com/wattnpapa/bos-nachrichtenvordruck">Quellcode<span class="sr-only"> von Nachrichtenvordruck</span></a>
 </p>
 </article>
 </li>
 <li class="karte">
 <article>
+<div class="feld kopfzeile">
 <h3><a class="karte-link" href="https://fmbauplaner.app">FMBauplaner</a></h3>
-<p class="beschreibung">Plant Fernmeldestrecken auf der Karte, ermittelt die Längen und gibt Bauaufträge und eine Lagekarte als PDF aus.</p>
+<span class="adresse" aria-hidden="true">fmbauplaner.app</span>
+</div>
+<p class="feld beschreibung">Plant Fernmeldestrecken auf der Karte, ermittelt die Längen und gibt Bauaufträge und eine Lagekarte als PDF aus.</p>
 <dl>
-<div><dt>Bildet ab</dt><dd>Bauauftrag für den Fernmeldebau, bisher oft eine Handskizze auf einer ausgedruckten Karte</dd></div>
-<div><dt>Für</dt><dd>THW, Fernmeldebau</dd></div>
+<div class="feld"><dt>Bildet ab</dt><dd>Bauauftrag für den Fernmeldebau, bisher oft eine Handskizze auf einer ausgedruckten Karte</dd></div>
+<div class="feld"><dt>Für</dt><dd>THW, Fernmeldebau</dd></div>
 </dl>
-<p class="karte-fuss">
-<span class="adresse" aria-hidden="true">fmbauplaner.app →</span>
+<p class="feld karte-fuss">
 <a class="repo" href="https://github.com/wattnpapa/fernmeldebauplaner">Quellcode<span class="sr-only"> von FMBauplaner</span></a>
 </p>
 </article>
 </li>
 </ul>
 </section>
-<section class="rubrik" aria-labelledby="rubrik-logistik">
-<h2 id="rubrik-logistik">Logistik</h2>
+<section class="abschnitt rubrik" aria-labelledby="rubrik-logistik">
+<h2 class="band" id="rubrik-logistik">Logistik</h2>
 <ul class="karten">
 <li class="karte">
 <article>
+<div class="feld kopfzeile">
 <h3><a class="karte-link" href="https://erfassungsbogen.app">Erfassungsbogen</a></h3>
-<p class="beschreibung">Erfasst Einheit, Personal, Fahrzeuge und Sofortbedarf, druckt den Bogen als PDF im Papier-Layout und überträgt ihn per QR-Code ohne Netz auf ein anderes Gerät.</p>
+<span class="adresse" aria-hidden="true">erfassungsbogen.app</span>
+</div>
+<p class="feld beschreibung">Erfasst Einheit, Personal, Fahrzeuge und Sofortbedarf, druckt den Bogen als PDF im Papier-Layout und überträgt ihn per QR-Code ohne Netz auf ein anderes Gerät.</p>
 <dl>
-<div><dt>Bildet ab</dt><dd>Einheiten-Erfassungsbogen (Stärkemeldung) für Einsatz, Übung und Bereitstellungsraum</dd></div>
-<div><dt>Für</dt><dd>BOS-Einheiten und Hilfsorganisationen, u. a. THW, Feuerwehr, DLRG, DRK, Johanniter, Malteser, ASB und Katastrophenschutz der Länder</dd></div>
+<div class="feld"><dt>Bildet ab</dt><dd>Einheiten-Erfassungsbogen (Stärkemeldung) für Einsatz, Übung und Bereitstellungsraum</dd></div>
+<div class="feld"><dt>Für</dt><dd>BOS-Einheiten und Hilfsorganisationen, u. a. THW, Feuerwehr, DLRG, DRK, Johanniter, Malteser, ASB und Katastrophenschutz der Länder</dd></div>
 </dl>
-<p class="karte-fuss">
-<span class="adresse" aria-hidden="true">erfassungsbogen.app →</span>
+<p class="feld karte-fuss">
 <a class="repo" href="https://github.com/wattnpapa/erfassungsbogen">Quellcode<span class="sr-only"> von Erfassungsbogen</span></a>
 </p>
 </article>
 </li>
 </ul>
 </section>
-<section class="rubrik" aria-labelledby="rubrik-ausbildung">
-<h2 id="rubrik-ausbildung">Ausbildung</h2>
+<section class="abschnitt rubrik" aria-labelledby="rubrik-ausbildung">
+<h2 class="band" id="rubrik-ausbildung">Ausbildung</h2>
 <ul class="karten">
 <li class="karte">
 <article>
+<div class="feld kopfzeile">
 <h3><a class="karte-link" href="https://sprechfunk-uebung.de">Sprechfunk Übungsgenerator</a></h3>
-<p class="beschreibung">Erstellt Sprechfunkübungen mit verteilten Funksprüchen, erzeugt Melde- und Nachrichtenvordrucke als PDF und begleitet die Übungsleitung während der Übung.</p>
+<span class="adresse" aria-hidden="true">sprechfunk-uebung.de</span>
+</div>
+<p class="feld beschreibung">Erstellt Sprechfunkübungen mit verteilten Funksprüchen, erzeugt Melde- und Nachrichtenvordrucke als PDF und begleitet die Übungsleitung während der Übung.</p>
 <dl>
-<div><dt>Bildet ab</dt><dd>Vorbereitung und Durchführung einer Sprechfunkübung, z. B. am Dienstabend</dd></div>
-<div><dt>Für</dt><dd>Sprechfunkausbildung bei THW, Feuerwehr, Rettungsdienst und Hilfsorganisationen</dd></div>
+<div class="feld"><dt>Bildet ab</dt><dd>Vorbereitung und Durchführung einer Sprechfunkübung, z. B. am Dienstabend</dd></div>
+<div class="feld"><dt>Für</dt><dd>Sprechfunkausbildung bei THW, Feuerwehr, Rettungsdienst und Hilfsorganisationen</dd></div>
 </dl>
-<p class="karte-fuss">
-<span class="adresse" aria-hidden="true">sprechfunk-uebung.de →</span>
+<p class="feld karte-fuss">
 <a class="repo" href="https://github.com/wattnpapa/sprechfunk-uebung">Quellcode<span class="sr-only"> von Sprechfunk Übungsgenerator</span></a>
 </p>
 </article>
@@ -127,19 +137,23 @@
 <!-- TOOLS:END -->
   </div>
 
-  <section class="text" aria-labelledby="warum">
-    <h2 id="warum">Warum</h2>
+  <section class="abschnitt text" aria-labelledby="warum">
+    <h2 class="band" id="warum">Warum</h2>
+    <div class="blatt">
     <p>Jedes Werkzeug ersetzt einen Vordruck oder einen Arbeitsschritt, den es auf Papier schon gibt. Am Ergebnis ändert sich wenig: Wo ein Bogen herauskommt, sieht er aus wie der gewohnte und lässt sich drucken.</p>
     <p>Keines der Werkzeuge verlangt eine Anmeldung oder ein Konto. Einsatzauftrag, Nachrichtenvordruck, Erfassungsbogen und FMBauplaner verarbeiten Eingaben nur im Browser des eigenen Geräts und starten nach dem ersten Aufruf auch ohne Netz. Weitergegeben wird nur, was man selbst weitergibt: eine PDF, eine Datei, einen Link oder beim Erfassungsbogen einen QR-Code.</p>
     <p>Zwei Ausnahmen gibt es. Der FMBauplaner braucht für die Karte Kacheln und Höhendaten von externen Anbietern. Der Sprechfunk Übungsgenerator speichert Übungen bei Firebase (Google), damit Übungsleitung und Teilnehmer während der Übung denselben Stand sehen; er braucht dafür Netz.</p>
     <p>Organisation, Einheit und Kennung sind in Einsatzauftrag und Erfassungsbogen Eingabefelder, keine feste Vorgabe. Nachrichten- und Meldevordruck sind ohnehin BOS-weit im Gebrauch. Im Sprechfunk Übungsgenerator lassen sich Funkrufnamen frei eintragen und eigene Funksprüche hochladen. Der FMBauplaner folgt den Bauregeln der KatS-Dv 861 Feldkabelbau. Wo sonst ein Begriff aus dem THW stammt, soll er sich nach Möglichkeit durch den der eigenen Organisation ersetzen lassen.</p>
     <p>Der Quellcode der Werkzeuge liegt offen auf GitHub. Es handelt sich um private Projekte, nicht um amtliche Angebote einer Organisation.</p>
+    </div>
   </section>
 
-  <section class="text" aria-labelledby="andere">
-    <h2 id="andere">Für andere Organisationen</h2>
+  <section class="abschnitt text" aria-labelledby="andere">
+    <h2 class="band" id="andere">Für andere Organisationen</h2>
+    <div class="blatt">
     <p>Die Werkzeuge entstehen im Ehrenamt mit THW-Hintergrund, viele Vordrucke und Begriffe kommen daher aus dem THW. Nutzen können sie Feuerwehr, DRK, DLRG, Malteser, Johanniter, ASB und alle anderen BOS genauso.</p>
     <p>Wenn bei euch ein Feld anders heißt, ein Vordruck anders aussieht oder etwas fehlt: Schreibt es in ein Issue auf GitHub. Für jedes Werkzeug gibt es ein eigenes Repository, Anmerkungen zu dieser Seite gehen an <a href="https://github.com/wattnpapa/einsatz.tools/issues">github.com/wattnpapa/einsatz.tools/issues</a>.</p>
+    </div>
   </section>
 </main>
 

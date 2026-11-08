@@ -1,30 +1,42 @@
+/*
+  Gestaltung: die Seite als Vordruck.
+  Vorgedruckt (Linien, Feldbezeichnungen, Kopfbalken) in Formularblau,
+  Eintragungen in Schwarz, Abschnittsköpfe gelb wie beim Fb Fü 3.
+  Felder stoßen aneinander und teilen sich die Linie: Der Container trägt
+  die Linienfarbe als Hintergrund, die Felder liegen mit 2px Abstand darauf.
+*/
 :root {
-  --bg: #f4f5f7;
-  --flaeche: #ffffff;
-  --text: #111418;
-  --leise: #3b4350;
-  --rand: #8a93a0;
-  --akzent: #0a4f9c;
-  --akzent-text: #ffffff;
+  --papier: #ffffff;
+  --grund: #e9eef6;
+  --vordruck: #123e7c;
+  --balken: #123e7c;
+  --linie: #5b7db1;
+  --eintrag: #000000;
+  --leise: #2c3e5c;
+  --gelb: #ffd23f;
+  --auf-gelb: #000000;
+  --auf-blau: #ffffff;
+  --gedrueckt: #dce7f7;
   --fokus: #c2410c;
-  --status-bg: #fff2c2;
-  --status-text: #5a4300;
-  --radius: 10px;
+  --strich: 2px;
+
+  --din: "DIN Alternate", Bahnschrift, "DIN Next", "D-DIN", "Roboto Condensed", "Arial Narrow", sans-serif-condensed, system-ui, sans-serif;
+  --text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111418;
-    --flaeche: #1b2027;
-    --text: #f2f4f7;
-    --leise: #c3cad4;
-    --rand: #66707e;
-    --akzent: #8cc2ff;
-    --akzent-text: #0b1420;
+    --papier: #0e1b30;
+    --grund: #071021;
+    --vordruck: #9ec0f2;
+    --balken: #123e7c;
+    --linie: #6f93cc;
+    --eintrag: #ffffff;
+    --leise: #c9d7ee;
+    --gelb: #f2c230;
+    --gedrueckt: #1b3156;
     --fokus: #ffb36b;
-    --status-bg: #4a3a00;
-    --status-text: #ffe9a3;
   }
 }
 
@@ -37,25 +49,24 @@ html {
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  background: var(--grund);
+  color: var(--eintrag);
+  font-family: var(--text);
   font-size: 1.0625rem;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .wrap {
-  max-width: 68rem;
+  max-width: 72rem;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-a { color: var(--akzent); text-underline-offset: 0.15em; }
+a { color: var(--vordruck); text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; }
 
 :focus-visible {
   outline: 3px solid var(--fokus);
-  outline-offset: 3px;
-  border-radius: 4px;
+  outline-offset: 2px;
 }
 
 .sr-only {
@@ -72,77 +83,131 @@ a { color: var(--akzent); text-underline-offset: 0.15em; }
   position: absolute;
   left: 16px; top: -100px;
   padding: 12px 16px;
-  background: var(--akzent);
-  color: var(--akzent-text);
-  font-weight: 600;
+  background: var(--gelb);
+  color: var(--auf-gelb);
+  font-weight: 700;
   z-index: 10;
 }
 .skip:focus { top: 8px; }
 
-/* Kopf */
+/* ---------- Kopf: blauer Balken wie auf dem Vordruck ---------- */
+
 .kopf {
-  padding: 40px 0 24px;
-  border-bottom: 1px solid var(--rand);
+  margin-top: 24px;
+  border: var(--strich) solid var(--linie);
+  background: var(--papier);
 }
 .kopf h1 {
-  margin: 0 0 8px;
-  font-size: clamp(2rem, 7vw, 3rem);
-  line-height: 1.1;
+  margin: 0;
+  padding: 20px 20px 18px;
+  background: var(--balken);
+  color: var(--auf-blau);
+  font-family: var(--din);
+  font-weight: 700;
+  font-stretch: condensed;
+  font-size: clamp(2rem, 10.5vw, 5.5rem);
+  line-height: 0.95;
   letter-spacing: -0.01em;
 }
 .untertitel {
   margin: 0;
-  max-width: 42rem;
-  color: var(--leise);
-  font-size: 1.125rem;
+  padding: 14px 20px 16px;
+  max-width: 48rem;
+  font-size: 1.1875rem;
+  line-height: 1.45;
 }
 
-/* Rubriken */
-.rubrik { margin-top: 40px; }
-.rubrik h2, .text h2 {
+/* ---------- Abschnitte: gelber Kopf, darunter das Blatt ---------- */
+
+.abschnitt { margin-top: 32px; }
+
+.band {
   margin: 0;
-  font-size: 1.5rem;
-  line-height: 1.25;
+  padding: 10px 16px;
+  background: var(--gelb);
+  color: var(--auf-gelb);
+  border: var(--strich) solid var(--linie);
+  border-bottom: 0;
+  font-family: var(--din);
+  font-weight: 700;
+  font-size: 1.375rem;
+  line-height: 1.2;
 }
-.rubrik hgroup p {
-  margin: 2px 0 0;
-  color: var(--leise);
+hgroup.band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 12px;
+}
+hgroup.band h2 {
+  margin: 0;
+  font: inherit;
+}
+hgroup.band p {
+  margin: 0;
+  font-family: var(--text);
+  font-size: 1rem;
   font-weight: 600;
 }
 
+/* ---------- Tool-Felder ---------- */
+
+/* Raster wie auf dem Vordruck: Felder nebeneinanderstehender Tools liegen
+   über subgrid auf denselben Zeilen. Jede Karte belegt vier Zeilen:
+   Name, Beschreibung, Angaben, Quellcode. */
 .karten {
   list-style: none;
-  margin: 16px 0 0;
+  margin: 0;
   padding: 0;
   display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: var(--strich);
+  background: var(--linie);
+  border: var(--strich) solid var(--linie);
 }
-
+.karte {
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  min-width: 0;
+}
 .karte article {
   position: relative;
-  height: 100%;
+  grid-row: span 4;
+  display: grid;
+  grid-template-rows: subgrid;
+  gap: var(--strich);
+  background: var(--linie);
+}
+.karte article:has(.karte-link:active) .feld { background: var(--gedrueckt); }
+.karte article:focus-within { outline: 3px solid var(--fokus); outline-offset: -3px; z-index: 1; }
+
+.feld {
+  margin: 0;
+  padding: 10px 16px 12px;
+  background: var(--papier);
+}
+
+.kopfzeile {
   display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background: var(--flaeche);
-  border: 2px solid var(--rand);
-  border-radius: var(--radius);
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 16px;
+  padding-top: 14px;
 }
-.karte article:focus-within {
-  outline: 3px solid var(--fokus);
-  outline-offset: 3px;
-}
-.karte article:has(.karte-link:active) { border-color: var(--akzent); }
-
 .karte h3 {
-  margin: 0 0 8px;
-  font-size: 1.25rem;
-  line-height: 1.3;
+  margin: 0;
+  font-family: var(--din);
+  font-weight: 700;
+  font-size: 1.625rem;
+  line-height: 1.1;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
-
 .karte-link {
-  color: var(--text);
+  color: var(--eintrag);
   text-decoration: none;
 }
 /* Ganze Karte klickbar */
@@ -150,73 +215,92 @@ a { color: var(--akzent); text-underline-offset: 0.15em; }
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: var(--radius);
 }
 .karte-link:focus-visible { outline: none; }
 
+.adresse {
+  color: var(--vordruck);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  overflow-wrap: anywhere;
+}
+
 .status {
   display: inline-block;
-  margin-left: 6px;
-  padding: 1px 8px;
-  border-radius: 999px;
-  background: var(--status-bg);
-  color: var(--status-text);
+  margin-left: 8px;
+  padding: 0 6px;
+  border: var(--strich) solid var(--eintrag);
+  font-family: var(--text);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  vertical-align: 0.3em;
+}
+
+/* Zeilenlänge begrenzen, auch wenn ein Feld über die ganze Breite geht */
+.beschreibung { padding-right: max(16px, 100% - 42rem); }
+
+.karte dl {
+  margin: 0;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: var(--strich);
+}
+.karte dl .feld { flex: 1 1 12rem; }
+.karte dt {
+  color: var(--vordruck);
   font-size: 0.8125rem;
   font-weight: 600;
-  vertical-align: 0.15em;
-  text-transform: lowercase;
+  line-height: 1.3;
 }
-
-.beschreibung { margin: 0 0 12px; }
-
-.karte dl { margin: 0 0 16px; }
-.karte dl div { margin-top: 6px; }
-.karte dt {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--leise);
+.karte dd {
+  margin: 2px 0 0;
+  font-family: var(--din);
+  font-size: 1.0625rem;
+  line-height: 1.3;
 }
-.karte dd { margin: 0; }
 
 .karte-fuss {
-  margin: auto 0 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px 16px;
-}
-.adresse {
-  font-weight: 700;
-  color: var(--akzent);
-  overflow-wrap: anywhere;
+  justify-content: flex-end;
 }
 .repo {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   min-height: 48px;
-  padding: 0 16px;
-  border: 2px solid var(--rand);
-  border-radius: 8px;
-  background: var(--flaeche);
-  font-weight: 600;
+  padding: 0 18px;
+  border: var(--strich) solid var(--vordruck);
+  background: var(--papier);
+  color: var(--vordruck);
+  font-weight: 700;
   text-decoration: none;
 }
+.repo:active { background: var(--gedrueckt); }
 
-/* Textabschnitte */
-.text {
-  margin-top: 48px;
-  max-width: 44rem;
+/* ---------- Textabschnitte ---------- */
+
+.blatt {
+  padding: 4px 20px 20px;
+  background: var(--papier);
+  border: var(--strich) solid var(--linie);
 }
-.text p { margin: 12px 0 0; overflow-wrap: anywhere; }
+.blatt p {
+  margin: 14px 0 0;
+  max-width: 40rem;
+  overflow-wrap: anywhere;
+}
 
-/* Fuß */
+/* ---------- Fuß ---------- */
+
 .fuss {
-  margin-top: 56px;
-  padding: 24px 0 40px;
-  border-top: 1px solid var(--rand);
+  margin-top: 40px;
+  padding: 8px 0 40px;
   color: var(--leise);
 }
 .fuss ul {
@@ -225,7 +309,7 @@ a { color: var(--akzent); text-underline-offset: 0.15em; }
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 24px;
+  gap: 0 24px;
 }
 .fuss a {
   display: inline-flex;
@@ -233,12 +317,32 @@ a { color: var(--akzent); text-underline-offset: 0.15em; }
   min-height: 48px;
   font-weight: 600;
 }
-.fuss p { margin: 8px 0 0; font-size: 0.9375rem; }
+.fuss p { margin: 4px 0 0; max-width: 40rem; font-size: 0.9375rem; }
 
-/* Unterseiten */
-.seite h1 { margin: 32px 0 16px; font-size: 2rem; line-height: 1.2; }
-.seite h2 { margin: 32px 0 8px; font-size: 1.25rem; }
-.seite p, .seite address { margin: 8px 0 0; max-width: 44rem; font-style: normal; }
+/* ---------- Unterseiten ---------- */
+
+.seite { padding-bottom: 8px; }
+.seite h1 {
+  margin: 8px 0 0;
+  padding: 16px 20px;
+  background: var(--balken);
+  color: var(--auf-blau);
+  font-family: var(--din);
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: 1.05;
+}
+.seite h2 {
+  margin: 28px 0 6px;
+  font-family: var(--din);
+  font-size: 1.375rem;
+  line-height: 1.2;
+}
+.seite p, .seite address {
+  margin: 8px 0 0;
+  max-width: 44rem;
+  font-style: normal;
+  overflow-wrap: anywhere;
+}
 .zurueck {
   display: inline-flex;
   align-items: center;
@@ -250,21 +354,21 @@ a { color: var(--akzent); text-underline-offset: 0.15em; }
 .knopf {
   min-height: 48px;
   padding: 0 20px;
-  border: 2px solid var(--akzent);
-  border-radius: 8px;
-  background: var(--akzent);
-  color: var(--akzent-text);
+  border: var(--strich) solid var(--vordruck);
+  background: var(--papier);
+  color: var(--vordruck);
   font: inherit;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
-}
+.knopf:active { background: var(--gedrueckt); }
 
 @media print {
-  .skip, .repo, .fuss nav { display: none; }
-  .karte article { border-color: #000; break-inside: avoid; }
-  .karte-link::after { content: " (" attr(href) ")"; position: static; font-weight: 400; }
+  body { background: #fff; color: #000; }
+  .skip, .karte-fuss, .fuss nav { display: none; }
+  .karte { break-inside: avoid; }
+  .karte-link::after { content: " (" attr(href) ")"; position: static; font: 400 0.8rem system-ui, sans-serif; }
 }
+
+/* Links im Fließtext des Fußes ohne Mindesthöhe, sonst reißen die Zeilen auf */
+.fuss p a { display: inline; min-height: 0; }

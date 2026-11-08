@@ -32,20 +32,22 @@ def host(url):
 def karte(t):
     zeilen = ['<li class="karte">', "<article>"]
     status = f' <span class="status">{e(t["status"])}</span>' if t.get("status") else ""
+    zeilen.append('<div class="feld kopfzeile">')
     zeilen.append(f'<h3><a class="karte-link" href="{e(t["url"])}">{e(t["name"])}</a>{status}</h3>')
-    zeilen.append(f'<p class="beschreibung">{e(t["beschreibung"])}</p>')
+    zeilen.append(f'<span class="adresse" aria-hidden="true">{e(host(t["url"]))}</span>')
+    zeilen.append("</div>")
+    zeilen.append(f'<p class="feld beschreibung">{e(t["beschreibung"])}</p>')
     angaben = [("Bildet ab", t.get("abbildung")), ("Für", t.get("zielgruppe"))]
     angaben = [(k, v) for k, v in angaben if v]
     if angaben:
         zeilen.append("<dl>")
         for k, v in angaben:
-            zeilen.append(f"<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>")
+            zeilen.append(f'<div class="feld"><dt>{e(k)}</dt><dd>{e(v)}</dd></div>')
         zeilen.append("</dl>")
-    zeilen.append('<p class="karte-fuss">')
-    zeilen.append(f'<span class="adresse" aria-hidden="true">{e(host(t["url"]))} →</span>')
     if t.get("repo"):
+        zeilen.append('<p class="feld karte-fuss">')
         zeilen.append(f'<a class="repo" href="{e(t["repo"])}">Quellcode<span class="sr-only"> von {e(t["name"])}</span></a>')
-    zeilen.append("</p>")
+        zeilen.append("</p>")
     zeilen.append("</article>")
     zeilen.append("</li>")
     return "\n".join(zeilen)
@@ -65,11 +67,11 @@ def render(daten):
         if not tools:
             continue
         rid = "rubrik-" + r["id"]
-        teile.append(f'<section class="rubrik" aria-labelledby="{e(rid)}">')
+        teile.append(f'<section class="abschnitt rubrik" aria-labelledby="{e(rid)}">')
         if r.get("untertitel"):
-            teile.append(f'<hgroup><h2 id="{e(rid)}">{e(r["titel"])}</h2><p>{e(r["untertitel"])}</p></hgroup>')
+            teile.append(f'<hgroup class="band"><h2 id="{e(rid)}">{e(r["titel"])}</h2><p>{e(r["untertitel"])}</p></hgroup>')
         else:
-            teile.append(f'<h2 id="{e(rid)}">{e(r["titel"])}</h2>')
+            teile.append(f'<h2 class="band" id="{e(rid)}">{e(r["titel"])}</h2>')
         teile.append('<ul class="karten">')
         teile.extend(karte(t) for t in tools)
         teile.append("</ul>")
