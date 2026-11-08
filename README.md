@@ -30,6 +30,7 @@ Einen Eintrag in `tools.json` unter `tools` anlegen:
   "name": "Beispielwerkzeug",
   "url": "https://beispiel.app",
   "rubrik": "logistik",
+  "symbol": "blatt",
   "beschreibung": "Ein Satz, was das Werkzeug tut.",
   "abbildung": "Welcher Vordruck oder welche Aufgabe abgebildet wird",
   "zielgruppe": "Für wen es gedacht ist",
@@ -38,7 +39,7 @@ Einen Eintrag in `tools.json` unter `tools` anlegen:
 }
 ```
 
-Pflicht sind `name`, `url`, `rubrik` und `beschreibung`. `abbildung`, `zielgruppe`, `repo` und `status` sind optional; leere Felder erscheinen nicht auf der Karte. Felder, die mit `_` beginnen (zum Beispiel `_todo`), sind Notizen und werden nicht angezeigt.
+Pflicht sind `name`, `url`, `rubrik` und `beschreibung`. `symbol` wählt das Bild in der Kachel links neben dem Namen: `blatt` (neutrales Blatt, Standard), `auftrag`, `nachricht`, `karte`, `qr` oder `funk`. Ein neues Symbol kommt als weiteres `<symbol id="sym-…">` in den Sprite oben in `index.html` und in die Liste `SYMBOLE` in `tools.js` und `scripts/render_tools.py`. `abbildung`, `zielgruppe`, `repo` und `status` sind optional; leere Felder erscheinen nicht auf der Karte. Felder, die mit `_` beginnen (zum Beispiel `_todo`), sind Notizen und werden nicht angezeigt.
 
 `rubrik` muss eine `id` aus der Liste `rubriken` sein (`fuehrung`, `logistik`, `ausbildung`). Rubriken ohne Werkzeug werden nicht angezeigt. Eine neue Rubrik entsteht durch einen weiteren Eintrag in `rubriken`; die Reihenfolge dort ist die Reihenfolge auf der Seite.
 

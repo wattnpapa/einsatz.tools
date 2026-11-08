@@ -20,8 +20,23 @@
     try { return new URL(url).host; } catch (e) { return url; }
   }
 
+  var SYMBOLE = ["blatt", "auftrag", "nachricht", "karte", "qr", "funk"];
+  var SVG = "http://www.w3.org/2000/svg";
+
+  function symbol(name) {
+    var svg = document.createElementNS(SVG, "svg");
+    svg.setAttribute("class", "symbol");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    var use = document.createElementNS(SVG, "use");
+    use.setAttribute("href", "#sym-" + (SYMBOLE.indexOf(name) >= 0 ? name : "blatt"));
+    svg.appendChild(use);
+    return svg;
+  }
+
   function karte(t) {
     var kopf = el("div", { "class": "feld kopfzeile" }, [
+      symbol(t.symbol),
       el("h3", {}, [
         el("a", { "class": "karte-link", href: t.url }, [t.name]),
         t.status ? " " : null,
@@ -52,7 +67,7 @@
       var h2 = el("h2", { id: rid }, [r.titel]);
       var kopf = r.untertitel ? el("hgroup", { "class": "band" }, [h2, el("p", {}, [r.untertitel])])
                               : (h2.setAttribute("class", "band"), h2);
-      frag.appendChild(el("section", { "class": "rubrik", "aria-labelledby": rid }, [
+      frag.appendChild(el("section", { "class": "abschnitt rubrik", "aria-labelledby": rid }, [
         kopf, el("ul", { "class": "karten" }, tools.map(karte))
       ]));
     });

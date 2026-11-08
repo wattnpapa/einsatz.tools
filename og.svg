@@ -1,11 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#e9eef6"/>
-  <rect x="60" y="60" width="1080" height="510" fill="#ffffff" stroke="#5b7db1" stroke-width="4"/>
-  <rect x="62" y="62" width="1076" height="220" fill="#123e7c"/>
-  <text x="110" y="222" fill="#ffffff" font-family="Bahnschrift, 'DIN Alternate', 'Roboto Condensed', system-ui, sans-serif" font-weight="700" font-size="140">einsatz.tools</text>
-  <rect x="62" y="282" width="1076" height="70" fill="#ffd23f"/>
-  <text x="110" y="330" fill="#000000" font-family="Bahnschrift, 'DIN Alternate', 'Roboto Condensed', system-ui, sans-serif" font-weight="700" font-size="36">Werkzeuge für BOS und Hilfsorganisationen</text>
-  <line x1="62" y1="352" x2="1138" y2="352" stroke="#5b7db1" stroke-width="4"/>
-  <text x="110" y="430" fill="#000000" font-family="system-ui, sans-serif" font-size="36">Laufen im Browser, brauchen kein Konto, kosten nichts.</text>
-  <text x="110" y="490" fill="#000000" font-family="system-ui, sans-serif" font-size="36">Jedes erledigt eine Aufgabe.</text>
+  <defs>
+    <pattern id="links" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="40" height="80" fill="#d3141b"/><rect x="40" width="40" height="80" fill="#fff"/>
+    </pattern>
+    <pattern id="rechts" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="40" height="80" fill="#d3141b"/><rect x="40" width="40" height="80" fill="#fff"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0b2447"/>
+  <text x="80" y="300" fill="#fff" font-family="Bahnschrift, 'DIN Alternate', 'Roboto Condensed', system-ui, sans-serif" font-weight="700" font-size="170" letter-spacing="-3">einsatz.tools</text>
+  <text x="84" y="380" fill="#fff" font-family="system-ui, sans-serif" font-size="38">Werkzeuge für BOS und Hilfsorganisationen.</text>
+  <text x="84" y="432" fill="#fff" font-family="system-ui, sans-serif" font-size="38">Im Browser, ohne Konto, kostenlos.</text>
+  <rect x="0" y="540" width="600" height="90" fill="url(#links)"/>
+  <rect x="600" y="540" width="600" height="90" fill="url(#rechts)"/>
 </svg>

@@ -1,24 +1,23 @@
 /*
-  Gestaltung: die Seite als Vordruck.
-  Vorgedruckt (Linien, Feldbezeichnungen, Kopfbalken) in Formularblau,
-  Eintragungen in Schwarz, Abschnittsköpfe gelb wie beim Fb Fü 3.
-  Felder stoßen aneinander und teilen sich die Linie: Der Container trägt
-  die Linienfarbe als Hintergrund, die Felder liegen mit 2px Abstand darauf.
+  Gestaltung
+  Ein auffälliges Element: die rot-weiße Warnmarkierung nach DIN 30710,
+  wie am Heck jedes Einsatzfahrzeugs, in V-Form nach außen abfallend.
+  Sie trennt den nachtblauen Kopf vom Inhalt. Alles andere bleibt ruhig.
+  Jedes Tool trägt ein Symbol des Papiers, das es ersetzt (Sprite in index.html).
 */
 :root {
-  --papier: #ffffff;
-  --grund: #e9eef6;
-  --vordruck: #123e7c;
-  --balken: #123e7c;
-  --linie: #5b7db1;
-  --eintrag: #000000;
-  --leise: #2c3e5c;
-  --gelb: #ffd23f;
-  --auf-gelb: #000000;
-  --auf-blau: #ffffff;
-  --gedrueckt: #dce7f7;
-  --fokus: #c2410c;
-  --strich: 2px;
+  --nachtblau: #0b2447;
+  --signalrot: #d3141b;
+  --weiss: #ffffff;
+  --papier: #f2f5fa;
+  --karte: #ffffff;
+  --tinte: #000000;
+  --leise: #34445f;
+  --rahmen: #0b2447;
+  --link: #0b4fa8;
+  --kachel: #0b2447;
+  --gedrueckt: #dfe8f6;
+  --fokus: #d3141b;
 
   --din: "DIN Alternate", Bahnschrift, "DIN Next", "D-DIN", "Roboto Condensed", "Arial Narrow", sans-serif-condensed, system-ui, sans-serif;
   --text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
@@ -27,15 +26,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --papier: #0e1b30;
-    --grund: #071021;
-    --vordruck: #9ec0f2;
-    --balken: #123e7c;
-    --linie: #6f93cc;
-    --eintrag: #ffffff;
-    --leise: #c9d7ee;
-    --gelb: #f2c230;
-    --gedrueckt: #1b3156;
+    --papier: #06142b;
+    --karte: #0e2246;
+    --tinte: #ffffff;
+    --leise: #c3d1e8;
+    --rahmen: #5a7fb8;
+    --link: #9cc4ff;
+    --kachel: #1a3f78;
+    --gedrueckt: #17325e;
     --fokus: #ffb36b;
   }
 }
@@ -49,8 +47,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--grund);
-  color: var(--eintrag);
+  background: var(--papier);
+  color: var(--tinte);
   font-family: var(--text);
   font-size: 1.0625rem;
   line-height: 1.5;
@@ -62,12 +60,14 @@ body {
   padding: 0 16px;
 }
 
-a { color: var(--vordruck); text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; }
+a { color: var(--link); text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; }
 
 :focus-visible {
   outline: 3px solid var(--fokus);
   outline-offset: 2px;
 }
+
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 
 .sr-only {
   position: absolute;
@@ -83,131 +83,128 @@ a { color: var(--vordruck); text-underline-offset: 0.18em; text-decoration-thick
   position: absolute;
   left: 16px; top: -100px;
   padding: 12px 16px;
-  background: var(--gelb);
-  color: var(--auf-gelb);
+  background: var(--weiss);
+  color: var(--nachtblau);
   font-weight: 700;
   z-index: 10;
 }
 .skip:focus { top: 8px; }
 
-/* ---------- Kopf: blauer Balken wie auf dem Vordruck ---------- */
+/* ---------- Kopf ---------- */
 
 .kopf {
-  margin-top: 24px;
-  border: var(--strich) solid var(--linie);
-  background: var(--papier);
+  background: var(--nachtblau);
+  color: var(--weiss);
+}
+.kopf .wrap {
+  padding-top: clamp(40px, 9vw, 96px);
+  padding-bottom: clamp(28px, 6vw, 56px);
 }
 .kopf h1 {
   margin: 0;
-  padding: 20px 20px 18px;
-  background: var(--balken);
-  color: var(--auf-blau);
   font-family: var(--din);
   font-weight: 700;
   font-stretch: condensed;
-  font-size: clamp(2rem, 10.5vw, 5.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.01em;
+  font-size: clamp(3rem, 15vw, 9.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
 }
 .untertitel {
-  margin: 0;
-  padding: 14px 20px 16px;
-  max-width: 48rem;
-  font-size: 1.1875rem;
-  line-height: 1.45;
+  margin: 20px 0 0;
+  max-width: 34rem;
+  font-size: clamp(1.125rem, 2.4vw, 1.375rem);
+  line-height: 1.4;
 }
 
-/* ---------- Abschnitte: gelber Kopf, darunter das Blatt ---------- */
+/* Warnmarkierung: links „/“, rechts „\“, beides fällt nach außen ab */
+.warnmarkierung {
+  height: clamp(22px, 4vw, 40px);
+  background:
+    repeating-linear-gradient(-45deg, var(--signalrot) 0 22px, var(--weiss) 22px 44px) left / 50% 100% no-repeat,
+    repeating-linear-gradient(45deg, var(--signalrot) 0 22px, var(--weiss) 22px 44px) right / 50% 100% no-repeat;
+  background-color: var(--weiss);
+}
 
-.abschnitt { margin-top: 32px; }
+/* ---------- Abschnitte ---------- */
+
+.abschnitt { margin-top: clamp(40px, 7vw, 72px); }
 
 .band {
-  margin: 0;
-  padding: 10px 16px;
-  background: var(--gelb);
-  color: var(--auf-gelb);
-  border: var(--strich) solid var(--linie);
-  border-bottom: 0;
+  margin: 0 0 16px;
   font-family: var(--din);
   font-weight: 700;
-  font-size: 1.375rem;
-  line-height: 1.2;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
 }
 hgroup.band {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 0 12px;
+  gap: 4px 16px;
 }
-hgroup.band h2 {
-  margin: 0;
-  font: inherit;
-}
+hgroup.band h2 { margin: 0; font: inherit; letter-spacing: inherit; }
 hgroup.band p {
   margin: 0;
+  color: var(--leise);
   font-family: var(--text);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 600;
+  letter-spacing: 0;
 }
 
-/* ---------- Tool-Felder ---------- */
+/* ---------- Tools ---------- */
 
-/* Raster wie auf dem Vordruck: Felder nebeneinanderstehender Tools liegen
-   über subgrid auf denselben Zeilen. Jede Karte belegt vier Zeilen:
-   Name, Beschreibung, Angaben, Quellcode. */
 .karten {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
-  gap: var(--strich);
-  background: var(--linie);
-  border: var(--strich) solid var(--linie);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
+  gap: 16px;
 }
-.karte {
-  display: grid;
-  grid-row: span 4;
-  grid-template-rows: subgrid;
-  min-width: 0;
-}
+.karte { display: flex; min-width: 0; }
 .karte article {
   position: relative;
-  grid-row: span 4;
-  display: grid;
-  grid-template-rows: subgrid;
-  gap: var(--strich);
-  background: var(--linie);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--karte);
+  border: 2px solid var(--rahmen);
 }
-.karte article:has(.karte-link:active) .feld { background: var(--gedrueckt); }
-.karte article:focus-within { outline: 3px solid var(--fokus); outline-offset: -3px; z-index: 1; }
+.karte article:has(.karte-link:active) { background: var(--gedrueckt); }
+.karte article:focus-within { outline: 3px solid var(--fokus); outline-offset: 3px; }
 
-.feld {
-  margin: 0;
-  padding: 10px 16px 12px;
-  background: var(--papier);
-}
+.feld { margin: 0; padding: 0 18px; }
 
 .kopfzeile {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 2px 16px;
-  padding-top: 14px;
+  --kachel-groesse: clamp(52px, 15vw, 64px);
+  display: grid;
+  grid-template-columns: var(--kachel-groesse) 1fr;
+  column-gap: 14px;
+  align-items: center;
+  padding-top: 18px;
+}
+.symbol {
+  grid-row: span 2;
+  width: var(--kachel-groesse);
+  height: var(--kachel-groesse);
+  padding: 5px;
+  background: var(--kachel);
 }
 .karte h3 {
   margin: 0;
+  align-self: end;
   font-family: var(--din);
   font-weight: 700;
-  font-size: 1.625rem;
+  font-size: clamp(1.375rem, 5.5vw, 1.625rem);
   line-height: 1.1;
   overflow-wrap: break-word;
   hyphens: auto;
   -webkit-hyphens: auto;
 }
 .karte-link {
-  color: var(--eintrag);
+  color: var(--tinte);
   text-decoration: none;
 }
 /* Ganze Karte klickbar */
@@ -219,7 +216,8 @@ hgroup.band p {
 .karte-link:focus-visible { outline: none; }
 
 .adresse {
-  color: var(--vordruck);
+  align-self: start;
+  color: var(--link);
   font-weight: 600;
   font-size: 0.9375rem;
   text-decoration: underline;
@@ -231,40 +229,30 @@ hgroup.band p {
   display: inline-block;
   margin-left: 8px;
   padding: 0 6px;
-  border: var(--strich) solid var(--eintrag);
+  border: 2px solid currentColor;
   font-family: var(--text);
   font-size: 0.8125rem;
   font-weight: 700;
   vertical-align: 0.3em;
 }
 
-/* Zeilenlänge begrenzen, auch wenn ein Feld über die ganze Breite geht */
-.beschreibung { padding-right: max(16px, 100% - 42rem); }
+.beschreibung { margin-top: 14px; }
 
-.karte dl {
-  margin: 0;
-  display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: var(--strich);
-}
-.karte dl .feld { flex: 1 1 12rem; }
+.karte dl { margin: 14px 0 0; padding: 0 18px; }
+.karte dl .feld { padding: 0; }
+.karte dl .feld + .feld { margin-top: 8px; }
 .karte dt {
-  color: var(--vordruck);
+  color: var(--leise);
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.3;
 }
-.karte dd {
-  margin: 2px 0 0;
-  font-family: var(--din);
-  font-size: 1.0625rem;
-  line-height: 1.3;
-}
+.karte dd { margin: 1px 0 0; line-height: 1.35; }
 
 .karte-fuss {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  padding-bottom: 16px;
   display: flex;
   justify-content: flex-end;
 }
@@ -275,9 +263,9 @@ hgroup.band p {
   align-items: center;
   min-height: 48px;
   padding: 0 18px;
-  border: var(--strich) solid var(--vordruck);
-  background: var(--papier);
-  color: var(--vordruck);
+  border: 2px solid var(--rahmen);
+  background: var(--karte);
+  color: var(--tinte);
   font-weight: 700;
   text-decoration: none;
 }
@@ -285,24 +273,22 @@ hgroup.band p {
 
 /* ---------- Textabschnitte ---------- */
 
-.blatt {
-  padding: 4px 20px 20px;
-  background: var(--papier);
-  border: var(--strich) solid var(--linie);
-}
 .blatt p {
   margin: 14px 0 0;
   max-width: 40rem;
   overflow-wrap: anywhere;
 }
+.blatt p:first-child { margin-top: 0; }
 
 /* ---------- Fuß ---------- */
 
 .fuss {
-  margin-top: 40px;
-  padding: 8px 0 40px;
-  color: var(--leise);
+  margin-top: clamp(48px, 8vw, 88px);
+  padding: 16px 0 40px;
+  background: var(--nachtblau);
+  color: var(--weiss);
 }
+.fuss a { color: var(--weiss); }
 .fuss ul {
   list-style: none;
   margin: 0;
@@ -311,25 +297,27 @@ hgroup.band p {
   flex-wrap: wrap;
   gap: 0 24px;
 }
-.fuss a {
+.fuss li a {
   display: inline-flex;
   align-items: center;
   min-height: 48px;
-  font-weight: 600;
+  font-weight: 700;
 }
-.fuss p { margin: 4px 0 0; max-width: 40rem; font-size: 0.9375rem; }
+.fuss p { margin: 4px 0 0; max-width: 40rem; font-size: 0.9375rem; color: #d6e0f0; }
 
 /* ---------- Unterseiten ---------- */
 
 .seite { padding-bottom: 8px; }
 .seite h1 {
   margin: 8px 0 0;
-  padding: 16px 20px;
-  background: var(--balken);
-  color: var(--auf-blau);
+  padding: 18px 20px;
+  background: var(--nachtblau);
+  color: var(--weiss);
   font-family: var(--din);
   font-size: clamp(2rem, 8vw, 3rem);
   line-height: 1.05;
+  border-bottom: 14px solid transparent;
+  border-image: repeating-linear-gradient(-45deg, var(--signalrot) 0 14px, var(--weiss) 14px 28px) 0 0 14 0 / 0 0 14px 0;
 }
 .seite h2 {
   margin: 28px 0 6px;
@@ -354,9 +342,9 @@ hgroup.band p {
 .knopf {
   min-height: 48px;
   padding: 0 20px;
-  border: var(--strich) solid var(--vordruck);
-  background: var(--papier);
-  color: var(--vordruck);
+  border: 2px solid var(--rahmen);
+  background: var(--karte);
+  color: var(--tinte);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
@@ -365,10 +353,8 @@ hgroup.band p {
 
 @media print {
   body { background: #fff; color: #000; }
-  .skip, .karte-fuss, .fuss nav { display: none; }
+  .skip, .karte-fuss, .fuss nav, .warnmarkierung { display: none; }
+  .kopf { background: none; color: #000; }
   .karte { break-inside: avoid; }
   .karte-link::after { content: " (" attr(href) ")"; position: static; font: 400 0.8rem system-ui, sans-serif; }
 }
-
-/* Links im Fließtext des Fußes ohne Mindesthöhe, sonst reißen die Zeilen auf */
-.fuss p a { display: inline; min-height: 0; }

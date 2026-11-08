@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent
 START = "<!-- TOOLS:START"
 END = "<!-- TOOLS:END -->"
 PFLICHT = ("name", "url", "rubrik", "beschreibung")
+SYMBOLE = ("blatt", "auftrag", "nachricht", "karte", "qr", "funk")
 
 
 def e(text):
@@ -32,7 +33,9 @@ def host(url):
 def karte(t):
     zeilen = ['<li class="karte">', "<article>"]
     status = f' <span class="status">{e(t["status"])}</span>' if t.get("status") else ""
+    symbol = t.get("symbol") if t.get("symbol") in SYMBOLE else "blatt"
     zeilen.append('<div class="feld kopfzeile">')
+    zeilen.append(f'<svg class="symbol" aria-hidden="true" focusable="false"><use href="#sym-{symbol}"></use></svg>')
     zeilen.append(f'<h3><a class="karte-link" href="{e(t["url"])}">{e(t["name"])}</a>{status}</h3>')
     zeilen.append(f'<span class="adresse" aria-hidden="true">{e(host(t["url"]))}</span>')
     zeilen.append("</div>")

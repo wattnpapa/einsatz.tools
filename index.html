@@ -27,12 +27,54 @@
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="sym-blatt" viewBox="0 0 48 48">
+    <rect x="11" y="5" width="26" height="38" fill="#fff"/>
+    <path d="M15 12h18M15 17h18M15 22h18M15 27h12" stroke="#0b2447" stroke-width="1.5"/>
+  </symbol>
+  <symbol id="sym-auftrag" viewBox="0 0 48 48">
+    <rect x="11" y="5" width="26" height="38" fill="#fff"/>
+    <rect x="11" y="5" width="26" height="7" fill="#3a6fc0"/>
+    <rect x="14" y="15" width="20" height="3" fill="#ffd23f"/>
+    <path d="M14 21.5h20M14 25h15" stroke="#0b2447" stroke-width="1.5"/>
+    <rect x="14" y="29" width="20" height="3" fill="#ffd23f"/>
+    <path d="M14 35.5h20M14 39h10" stroke="#0b2447" stroke-width="1.5"/>
+  </symbol>
+  <symbol id="sym-nachricht" viewBox="0 0 48 48">
+    <rect x="18" y="12" width="22" height="31" fill="#f4a6a8"/>
+    <rect x="14.5" y="8.5" width="22" height="31" fill="#ffd23f"/>
+    <rect x="11" y="5" width="22" height="31" fill="#fff"/>
+    <path d="M14 10h16M14 14h16M14 18h16M14 22h10" stroke="#0b2447" stroke-width="1.5"/>
+    <rect x="14.75" y="25.75" width="14.5" height="6.5" fill="none" stroke="#0b2447" stroke-width="1.5"/>
+  </symbol>
+  <symbol id="sym-karte" viewBox="0 0 48 48">
+    <rect x="6" y="8" width="36" height="32" fill="#fff"/>
+    <path d="M6 19h36M6 29h36M18 8v32M30 8v32" stroke="#c4d2e8" stroke-width="1"/>
+    <path d="M11 34 20 24l8 3 9-14" fill="none" stroke="#d3141b" stroke-width="2.5" stroke-dasharray="4 2"/>
+    <circle cx="11" cy="34" r="2.75" fill="#0b2447"/>
+    <circle cx="37" cy="13" r="2.75" fill="#0b2447"/>
+  </symbol>
+  <symbol id="sym-qr" viewBox="0 0 48 48">
+    <rect x="11" y="5" width="26" height="38" fill="#fff"/>
+    <path d="M15 10h18M15 14h12" stroke="#0b2447" stroke-width="1.5"/>
+    <path fill="#0b2447" d="M15 19h6v6h-6zM27 19h6v6h-6zM15 31h6v6h-6zM23 20h2v4h-2zM23 27h4v2h-4zM29 27h4v3h-4zM24 31h3v3h-3zM29 33h4v4h-4zM23 35h3v2h-3z"/>
+    <path fill="#fff" d="M16.5 20.5h3v3h-3zM28.5 20.5h3v3h-3zM16.5 32.5h3v3h-3z"/>
+  </symbol>
+  <symbol id="sym-funk" viewBox="0 0 48 48">
+    <rect x="17" y="4" width="3.5" height="12" fill="#fff"/>
+    <rect x="15" y="15" width="18" height="29" rx="2" fill="#fff"/>
+    <rect x="18" y="19" width="12" height="7" fill="#0b2447"/>
+    <path d="M19 30.5h2M23 30.5h2M27 30.5h2M19 34.5h2M23 34.5h2M27 34.5h2M19 38.5h10" stroke="#0b2447" stroke-width="2"/>
+    <path d="M25 6.5a5 5 0 0 1 0 7M29 3.5a10 10 0 0 1 0 13" fill="none" stroke="#d3141b" stroke-width="2.25" stroke-linecap="round"/>
+  </symbol>
+</svg>
 
-<header class="wrap">
-  <div class="kopf">
+<header class="kopf">
+  <div class="wrap">
     <h1>einsatz.tools</h1>
     <p class="untertitel">Werkzeuge für BOS und Hilfsorganisationen: laufen im Browser, brauchen kein Konto, kosten nichts, jedes erledigt eine Aufgabe.</p>
   </div>
+  <div class="warnmarkierung" aria-hidden="true"></div>
 </header>
 
 <main id="inhalt" class="wrap">
@@ -45,6 +87,7 @@
 <li class="karte">
 <article>
 <div class="feld kopfzeile">
+<svg class="symbol" aria-hidden="true" focusable="false"><use href="#sym-auftrag"></use></svg>
 <h3><a class="karte-link" href="https://einsatzauftrag.app">Einsatzauftrag</a></h3>
 <span class="adresse" aria-hidden="true">einsatzauftrag.app</span>
 </div>
@@ -61,6 +104,7 @@
 <li class="karte">
 <article>
 <div class="feld kopfzeile">
+<svg class="symbol" aria-hidden="true" focusable="false"><use href="#sym-nachricht"></use></svg>
 <h3><a class="karte-link" href="https://nachrichtenvordruck.app">Nachrichtenvordruck</a></h3>
 <span class="adresse" aria-hidden="true">nachrichtenvordruck.app</span>
 </div>
@@ -77,6 +121,7 @@
 <li class="karte">
 <article>
 <div class="feld kopfzeile">
+<svg class="symbol" aria-hidden="true" focusable="false"><use href="#sym-karte"></use></svg>
 <h3><a class="karte-link" href="https://fmbauplaner.app">FMBauplaner</a></h3>
 <span class="adresse" aria-hidden="true">fmbauplaner.app</span>
 </div>
@@ -98,6 +143,7 @@
 <li class="karte">
 <article>
 <div class="feld kopfzeile">
+<svg class="symbol" aria-hidden="true" focusable="false"><use href="#sym-qr"></use></svg>
 <h3><a class="karte-link" href="https://erfassungsbogen.app">Erfassungsbogen</a></h3>
 <span class="adresse" aria-hidden="true">erfassungsbogen.app</span>
 </div>
@@ -119,6 +165,7 @@
 <li class="karte">
 <article>
 <div class="feld kopfzeile">
+<svg class="symbol" aria-hidden="true" focusable="false"><use href="#sym-funk"></use></svg>
 <h3><a class="karte-link" href="https://sprechfunk-uebung.de">Sprechfunk Übungsgenerator</a></h3>
 <span class="adresse" aria-hidden="true">sprechfunk-uebung.de</span>
 </div>

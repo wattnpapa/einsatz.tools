@@ -1,7 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#ffffff"/>
-  <rect width="64" height="26" fill="#123e7c"/>
-  <rect y="26" width="64" height="12" fill="#ffd23f"/>
-  <path d="M10 48h44M10 56h30" stroke="#123e7c" stroke-width="4"/>
-  <rect x="1.5" y="1.5" width="61" height="61" fill="none" stroke="#123e7c" stroke-width="3"/>
+  <defs>
+    <clipPath id="l"><rect x="0" y="42" width="32" height="22"/></clipPath>
+    <clipPath id="r"><rect x="32" y="42" width="32" height="22"/></clipPath>
+  </defs>
+  <rect width="64" height="64" fill="#0b2447"/>
+  <text x="32" y="34" text-anchor="middle" fill="#fff" font-family="Bahnschrift, 'DIN Alternate', Arial, sans-serif" font-weight="700" font-size="30">et</text>
+  <rect y="42" width="64" height="22" fill="#fff"/>
+  <g clip-path="url(#l)" fill="#d3141b"><path d="M-20 64l22-22h10l-22 22zM0 64l22-22h10L10 64zM20 64l22-22h10L30 64z"/></g>
+  <g clip-path="url(#r)" fill="#d3141b"><path d="M84 64 62 42H52l22 22zM64 64 42 42H32l22 22zM44 64 22 42H12l22 22z"/></g>
 </svg>
