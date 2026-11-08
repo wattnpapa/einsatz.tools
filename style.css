@@ -246,12 +246,6 @@ a { color: var(--akzent); text-underline-offset: 0.15em; }
   margin-top: 16px;
   font-weight: 600;
 }
-.platzhalter {
-  background: var(--status-bg);
-  color: var(--status-text);
-  padding: 0 4px;
-  border-radius: 3px;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }

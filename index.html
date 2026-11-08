@@ -48,6 +48,7 @@
 <p class="beschreibung">Füllt den Einsatzauftrag am Bildschirm aus oder erzeugt viele Aufträge auf einmal aus einer Excel- oder CSV-Tabelle und gibt sie als PDF aus.</p>
 <dl>
 <div><dt>Bildet ab</dt><dd>Vordruck Fb Fü 3 (Einsatzauftrag)</dd></div>
+<div><dt>Für</dt><dd>Führung im THW; Kennung und Organisation im Kopf sind änderbar</dd></div>
 </dl>
 <p class="karte-fuss">
 <span class="adresse" aria-hidden="true">einsatzauftrag.app →</span>
@@ -61,7 +62,7 @@
 <p class="beschreibung">Füllt Nachrichtenvordruck und Meldevordruck am Bildschirm aus oder erzeugt viele aus einer Excel- oder CSV-Tabelle und gibt sie als PDF aus, auf Wunsch nur als Text zum Bedrucken vorgedruckter Bögen.</p>
 <dl>
 <div><dt>Bildet ab</dt><dd>BOS-Nachrichtenvordruck (4fach-Satz) und Meldevordruck</dd></div>
-<div><dt>Für</dt><dd>BOS</dd></div>
+<div><dt>Für</dt><dd>BOS, u. a. Führungsstellen (Verteiler für TEL, EL, EAL, UEAL und Sachgebiete)</dd></div>
 </dl>
 <p class="karte-fuss">
 <span class="adresse" aria-hidden="true">nachrichtenvordruck.app →</span>
@@ -129,8 +130,9 @@
   <section class="text" aria-labelledby="warum">
     <h2 id="warum">Warum</h2>
     <p>Jedes Werkzeug ersetzt einen Vordruck oder einen Arbeitsschritt, den es auf Papier schon gibt. Am Ergebnis ändert sich wenig: Wo ein Bogen herauskommt, sieht er aus wie der gewohnte und lässt sich drucken.</p>
-    <p>Keines der Werkzeuge verlangt eine Anmeldung oder ein Konto. Einsatzauftrag, Nachrichtenvordruck, Erfassungsbogen und FMBauplaner speichern Eingaben nur im Browser des eigenen Geräts und starten nach dem ersten Aufruf auch ohne Netz. Zwei Ausnahmen: Der FMBauplaner lädt Kartenkacheln und Höhendaten von externen Anbietern nach, und die Live-Übungsleitung des Sprechfunk Übungsgenerators läuft über einen Server, damit Übungsleitung und Teilnehmer denselben Stand sehen.<!-- TODO: Offline-Fähigkeit des Sprechfunk Übungsgenerators prüfen und ggf. ergänzen --></p>
-    <p>Organisation, Einheit und Kennung sind in Einsatzauftrag und Erfassungsbogen Eingabefelder, keine feste Vorgabe. Wo ein Begriff aus dem THW stammt, soll er sich nach Möglichkeit durch den der eigenen Organisation ersetzen lassen.<!-- TODO: für Nachrichtenvordruck, FMBauplaner und Sprechfunk Übungsgenerator belegen oder Satz einschränken --></p>
+    <p>Keines der Werkzeuge verlangt eine Anmeldung oder ein Konto. Einsatzauftrag, Nachrichtenvordruck, Erfassungsbogen und FMBauplaner verarbeiten Eingaben nur im Browser des eigenen Geräts und starten nach dem ersten Aufruf auch ohne Netz. Weitergegeben wird nur, was man selbst weitergibt: eine PDF, eine Datei, einen Link oder beim Erfassungsbogen einen QR-Code.</p>
+    <p>Zwei Ausnahmen gibt es. Der FMBauplaner braucht für die Karte Kacheln und Höhendaten von externen Anbietern. Der Sprechfunk Übungsgenerator speichert Übungen bei Firebase (Google), damit Übungsleitung und Teilnehmer während der Übung denselben Stand sehen; er braucht dafür Netz.</p>
+    <p>Organisation, Einheit und Kennung sind in Einsatzauftrag und Erfassungsbogen Eingabefelder, keine feste Vorgabe. Nachrichten- und Meldevordruck sind ohnehin BOS-weit im Gebrauch. Im Sprechfunk Übungsgenerator lassen sich Funkrufnamen frei eintragen und eigene Funksprüche hochladen. Der FMBauplaner folgt den Bauregeln der KatS-Dv 861 Feldkabelbau. Wo sonst ein Begriff aus dem THW stammt, soll er sich nach Möglichkeit durch den der eigenen Organisation ersetzen lassen.</p>
     <p>Der Quellcode der Werkzeuge liegt offen auf GitHub. Es handelt sich um private Projekte, nicht um amtliche Angebote einer Organisation.</p>
   </section>
 

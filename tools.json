@@ -23,9 +23,8 @@
       "rubrik": "fuehrung",
       "beschreibung": "Füllt den Einsatzauftrag am Bildschirm aus oder erzeugt viele Aufträge auf einmal aus einer Excel- oder CSV-Tabelle und gibt sie als PDF aus.",
       "abbildung": "Vordruck Fb Fü 3 (Einsatzauftrag)",
-      "zielgruppe": "",
-      "repo": "https://github.com/wattnpapa/einsatzauftrag",
-      "_todo": "zielgruppe: geht aus der Seite nicht hervor (Vorbelegung ist „Technisches Hilfswerk“, Organisation ist änderbar)"
+      "zielgruppe": "Führung im THW; Kennung und Organisation im Kopf sind änderbar",
+      "repo": "https://github.com/wattnpapa/einsatzauftrag"
     },
     {
       "name": "Nachrichtenvordruck",
@@ -33,7 +32,7 @@
       "rubrik": "fuehrung",
       "beschreibung": "Füllt Nachrichtenvordruck und Meldevordruck am Bildschirm aus oder erzeugt viele aus einer Excel- oder CSV-Tabelle und gibt sie als PDF aus, auf Wunsch nur als Text zum Bedrucken vorgedruckter Bögen.",
       "abbildung": "BOS-Nachrichtenvordruck (4fach-Satz) und Meldevordruck",
-      "zielgruppe": "BOS",
+      "zielgruppe": "BOS, u. a. Führungsstellen (Verteiler für TEL, EL, EAL, UEAL und Sachgebiete)",
       "repo": "https://github.com/wattnpapa/bos-nachrichtenvordruck"
     },
     {

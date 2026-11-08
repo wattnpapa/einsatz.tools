@@ -15,7 +15,7 @@ Derzeit erreichbar unter https://wattnpapa.github.io/einsatz.tools/. Später sol
 | `tools.js` | rendert die Karten im Browser aus `tools.json` |
 | `scripts/render_tools.py` | bettet die Liste statisch in `index.html` ein (für Aufrufe ohne JavaScript) |
 | `style.css` | Gestaltung, Dark Mode über `prefers-color-scheme` |
-| `impressum.html`, `datenschutz.html` | Rechtliches, Platzhalter ausfüllen |
+| `impressum.html`, `datenschutz.html` | Impressum und Datenschutzerklärung |
 | `favicon.svg`, `og.svg` | Quellen für Favicon und Vorschaubild |
 | `og.png`, `apple-touch-icon.png` | daraus erzeugt mit `node scripts/og.js` (optional, braucht Playwright) |
 | `snippets/footer-link.html` | Hinweis „Teil von einsatz.tools“ für die Footer der einzelnen Werkzeuge |
