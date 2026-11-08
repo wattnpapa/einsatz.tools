@@ -18,6 +18,7 @@ Derzeit erreichbar unter https://wattnpapa.github.io/einsatz.tools/. Später sol
 | `impressum.html`, `datenschutz.html` | Impressum und Datenschutzerklärung |
 | `favicon.svg`, `og.svg` | Quellen für Favicon und Vorschaubild |
 | `og.png`, `apple-touch-icon.png` | daraus erzeugt mit `node scripts/og.js` (optional, braucht Playwright) |
+| `vendor/count.js`, `widerspruch.js` | GoatCounter-Zählskript (selbst ausgeliefert, ISC-Lizenz) und Widerspruchsknopf auf der Datenschutzseite |
 | `snippets/footer-link.html` | Hinweis „Teil von einsatz.tools“ für die Footer der einzelnen Werkzeuge |
 
 ## Ein Werkzeug ergänzen
@@ -92,7 +93,7 @@ Alle übrigen Pfade der Seite sind relativ und funktionieren unter beiden Adress
 
 ## Grundsätze der Seite
 
-Kein Tracking, keine Cookies, keine externen Schriften oder Skripte. Die einzige Anfrage nach dem Laden ist `tools.json` vom selben Server.
+Keine Cookies, keine externen Schriften oder Skripte. Nach dem Laden gehen zwei Anfragen raus: `tools.json` vom selben Server und ein Zählimpuls an GoatCounter (einsatztools.goatcounter.com). Das Zählskript liegt unter `vendor/count.js` im Repo statt von gc.zgo.at geladen zu werden; zum Aktualisieren `curl -sSL https://gc.zgo.at/count.js -o vendor/count.js`. Auf localhost zählt es nicht.
 
 ## Lizenz
 

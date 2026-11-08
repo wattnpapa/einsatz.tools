@@ -26,8 +26,15 @@ E-Mail: <a href="mailto:johannes.rudolph@thw-oldenburg.de">johannes.rudolph@thw-
 <h2>Hosting</h2>
 <p>Diese Seite wird über GitHub Pages (GitHub Inc.) ausgeliefert. Beim Aufruf verarbeitet GitHub technisch notwendige Verbindungsdaten wie die IP-Adresse in Server-Logs, um die Seite auszuliefern und abzusichern. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Einzelheiten stehen im <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
 
-<h2>Was diese Seite nicht tut</h2>
-<p>Die Seite setzt keine Cookies, nutzt kein Tracking und keine Reichweitenmessung und lädt keine Schriften, Skripte oder Bilder von fremden Servern. Sie liest nur die Datei tools.json vom selben Server.</p>
+<h2>Cookies und eingebundene Inhalte</h2>
+<p>Die Seite setzt keine Cookies und lädt keine Schriften, Skripte oder Bilder von fremden Servern. Außer dem Zählimpuls (nächster Abschnitt) nimmt sie keinen Kontakt zu anderen Servern auf.</p>
+
+<h2 id="zaehlung">Reichweitenmessung</h2>
+<p>Zur Reichweitenmessung wird GoatCounter eingesetzt. Beim Aufruf einer Seite führt der Browser ein Zählskript aus, das diese Seite selbst ausliefert, und sendet einen Zählimpuls an einsatztools.goatcounter.com. Übertragen werden dabei die aufgerufene Seite, ihr Titel, die verweisende Seite und die Bildschirmbreite; aus der Verbindung ergeben sich zusätzlich Browser, Betriebssystem und Land. Die IP-Adresse dient nur dazu, wiederholte Aufrufe zu erkennen, und wird nicht gespeichert. Es werden keine Cookies gesetzt und keine geräteübergreifende Kennung gebildet. Ausgewertet werden nur zusammengefasste Zahlen, etwa wie oft welche Seite aufgerufen wurde.</p>
+<p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; das berechtigte Interesse besteht darin zu sehen, ob und wie die Seite genutzt wird. Anbieter ist GoatCounter (Martin Tournoij), Einzelheiten in der <a href="https://www.goatcounter.com/help/privacy">Datenschutzerklärung von GoatCounter</a>.</p>
+<p>Du kannst der Zählung widersprechen. Dann legt die Seite in deinem Browser den Eintrag <code>skipgc</code> ab und sendet keinen Zählimpuls mehr. Der Widerspruch gilt nur für diesen Browser und endet, wenn du die Websitedaten löschst.</p>
+<p id="widerspruch-status" aria-live="polite">Ohne JavaScript wird ohnehin nicht gezählt.</p>
+<p><button type="button" id="widerspruch" class="knopf" hidden></button></p>
 
 <h2>Verlinkte Werkzeuge</h2>
 <p>Die Werkzeuge, auf die diese Seite verweist, laufen unter eigenen Adressen und haben jeweils eine eigene Datenschutzerklärung.</p>
@@ -48,5 +55,7 @@ E-Mail: <a href="mailto:johannes.rudolph@thw-oldenburg.de">johannes.rudolph@thw-
     </nav>
   </div>
 </footer>
+<script data-goatcounter="https://einsatztools.goatcounter.com/count" async src="vendor/count.js"></script>
+<script src="widerspruch.js" defer></script>
 </body>
 </html>

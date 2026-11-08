@@ -247,6 +247,18 @@ a { color: var(--akzent); text-underline-offset: 0.15em; }
   font-weight: 600;
 }
 
+.knopf {
+  min-height: 48px;
+  padding: 0 20px;
+  border: 2px solid var(--akzent);
+  border-radius: 8px;
+  background: var(--akzent);
+  color: var(--akzent-text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
